@@ -1,10 +1,10 @@
-import "./App.css";
-import BackgroundLogo from "./components/BackgroundLogo";
+import Banner from "./components/Banner";
+
 function App() {
   return (
-    <>
-      <BackgroundLogo />
-    </>
+    <div className="flex items-center flex-col">
+      <Banner />
+    </div>
   );
 }
 
