@@ -2,19 +2,17 @@ import { useState } from "react";
 import iconSun from "../assets/images/icon-sun.svg";
 import iconMoon from "../assets/images/icon-moon.svg";
 import Formtask from "./FormTasks";
-import Infos from "./Infos";
-import List from "./List";
 
 interface ContentProps {
   handleBanner: (mode: boolean) => void;
 }
 
 export default function Content({ handleBanner }: ContentProps) {
-  const [mode, setMode] = useState<boolean>(false);
+  const [themeMode, setThemeMode] = useState<boolean>(false);
 
   const handleMode = () => {
-    setMode(!mode);
-    handleBanner(!mode);
+    setThemeMode(!themeMode);
+    handleBanner(!themeMode);
   };
 
   return (
@@ -25,16 +23,12 @@ export default function Content({ handleBanner }: ContentProps) {
         </h1>
         <button onClick={handleMode}>
           <img
-            src={mode ? iconMoon : iconSun}
-            alt={mode ? "Moon icon" : "Sun icon"}
+            src={themeMode ? iconMoon : iconSun}
+            alt={themeMode ? "Moon icon" : "Sun icon"}
           />
         </button>
       </div>
-      <Formtask />
-      <div className="rounded-md p-1 bg-very-dark-desaturated-blue shadow-black w-full  shadow-2xl ">
-        <List />
-        <Infos />
-      </div>
+      <Formtask themeMode={themeMode} />
     </div>
   );
 }

@@ -3,11 +3,16 @@ import bannerLight from "../assets/images/bg-desktop-light.jpg";
 import Content from "./Content";
 import { useState } from "react";
 
-export default function Banner() {
+interface Prop {
+  themeBg: (themeBg: boolean) => void;
+}
+
+export default function Banner({ themeBg }: Prop) {
   const [bannerMode, setBannerMode] = useState<boolean>(false);
 
   const handleBannerMode = (mode: boolean) => {
     setBannerMode(mode);
+    themeBg(mode);
   };
 
   const bannerStyle = {

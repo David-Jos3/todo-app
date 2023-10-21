@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      borderColor: {
+        'custom-gradient': 'linear-gradient(192deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
+      },
       letterSpacing: {
         tightest: '-.075em',
         tighter: '-.05em',
