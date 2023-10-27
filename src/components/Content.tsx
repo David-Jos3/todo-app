@@ -16,9 +16,9 @@ export default function Content({ handleBanner }: ContentProps) {
   };
 
   return (
-    <div className="w-1/2 p-5 mt-20 max-w-3xl z-10 absolute top-0 left-0 right-0 mx-auto ">
+    <div className="w-1/2 p-5 mt-20 max-w-3xl z-10 absolute top-0 left-0 right-0 mx-auto  sm:w-auto ">
       <div className="flex justify-between ">
-        <h1 className="text-white text-5xl -tracking-custom font-bold ">
+        <h1 className="text-white text-5xl -tracking-custom font-bold sm:text-2xl ">
           TODO
         </h1>
         <button onClick={handleMode}>

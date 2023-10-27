@@ -16,21 +16,24 @@ export default function Formtask({ themeMode }: Props) {
     const inputValue = event.target.value;
     setVelueIntput(inputValue);
   };
-
-  const handleSubmit = (event: FormEvent) => {
+  function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (valueInput !== "") {
       setTasks([...tasks, valueInput]);
       setVelueIntput("");
     }
-  };
+  }
   const handleClear = () => setTasks([]);
 
-  const deleteItem = (deleteTask: string) => {
-    console.log(deleteTask)
-    const newTasks = tasks.filter((task) => task !== deleteTask);
-    setTasks(newTasks);
-  };
+  function deleteItem(deleteTask: string) {
+    const index = tasks.findIndex((task) => task === deleteTask);
+
+    if (index !== -1) {
+      const newTasks = [...tasks];
+      newTasks.splice(index, 1);
+      setTasks(newTasks);
+    }
+  }
 
   const bgThemeColor = themeMode
     ? `bg-light-grayish-blue-hover`
@@ -42,11 +45,11 @@ export default function Formtask({ themeMode }: Props) {
   return (
     <form onSubmit={handleSubmit} className="mt-16">
       <div
-        className={`flex items-center justify-start  gap-3 ${bgThemeColor}  rounded-lg p-5 mb-9`}
+        className={`flex items-center justify-start gap-3 ${bgThemeColor} rounded-lg p-5 mb-9  sm:p-3 `}
       >
-        <div className=" rounded-full w-16 h-6 border border-very-dark-grayish-blue bg-transparent"></div>
+        <div className=" rounded-full w-16 h-6 border border-very-dark-grayish-blue bg-transparent sm:w-6 sm:h-5"></div>
         <input
-          className={`w-screen bg-transparent  ${themeColorText}   text-lg  outline-none  p-2 `}
+          className={`w-screen bg-transparent ${themeColorText}   text-lg  outline-none p-2  sm:text-base`}
           type="text"
           placeholder="Create a new todo..."
           onChange={handleValue}
@@ -56,9 +59,9 @@ export default function Formtask({ themeMode }: Props) {
       <div
         className={`rounded-md p-1 ${bgThemeColor} shadow-black w-full  shadow-2xl `}
       >
-        {tasks.map((task) => (
+        {tasks.map((task, index) => (
           <List
-            key={task}
+            key={index}
             tasks={task}
             theme={themeMode}
             deleteItem={deleteItem}

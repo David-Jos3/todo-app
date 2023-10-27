@@ -5,6 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      '2xl': {'max': '1400px'},
+
+      'xl': {'max': '1279px'},
+
+      'lg': {'max': '1023px'},
+
+      'md': {'max': '767px'},
+
+      'sm': {'max': '639px'},  
+      },
     extend: {
       borderColor: {
         'custom-gradient': 'linear-gradient(192deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%))',

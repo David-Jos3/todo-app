@@ -1,15 +1,15 @@
 import checkIcon from "../assets/images/icon-check.svg";
-import { useState } from "react";
-export default function Checkbox() {
 
-  const [isChecked, setIsChecked] = useState(false);
+interface Props {
+  isChecked: boolean,
+  toggleCheckbox: () => void
+}
 
-  const toggleCheckbox = () => {
-    setIsChecked(!isChecked);
-  };
-
+export default function Checkbox({ isChecked, toggleCheckbox }: Props) {
+  
   const iconStyle = {
     display: isChecked ? "block" : "none",
+    textDecoration: isChecked ? "line-through" : "",
     backgroundImage: `url(${checkIcon})`,
   };
 
